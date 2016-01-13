@@ -1,0 +1,27 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <title>{{vars.title}}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <!-- IE8 and below need to load the Intl polyfill before any other polyfill. -->
+    <!--[if lt IE 9]>
+      <script src="https://cdn.polyfill.io/v2/polyfill.min.js?features=Intl"></script>
+    <![endif]-->
+
+    {{{webpackPublicPath}}}
+    {{{webpackManifest}}}
+
+    <link href='//fonts.googleapis.com/css?family=Lato:300,400,700' rel='stylesheet' type='text/css'>
+    {{#webpackCss}}
+    {{{.}}}
+    {{/webpackCss}}
+  </head>
+  <body>
+    <div id="react-mount"></div>
+    {{#webpackEntry}}
+    {{{.}}}
+    {{/webpackEntry}}
+  </body>
+</html>

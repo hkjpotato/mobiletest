@@ -1,0 +1,16 @@
+node_modules/
+dist/
+tests/
+target/
+node/
+lib/
+package/
+.idea/
+.DS_Store
+npm-debug.log
+*.iml
+*.versionsBackup
+*.orig
+
+public/index.html
+public/docs
