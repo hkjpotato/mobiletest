@@ -2,7 +2,7 @@ import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import LocationItem from '../components/LocationItem';
 import LocationsList from '../components/LocationsList';
-import t from 'counterpart';
+import { translate } from '../translate';
 
 class LocationsContainer extends Component {
   static propTypes = {
@@ -26,7 +26,7 @@ class LocationsContainer extends Component {
     }
 
     return (
-      <LocationsList title={t('_my_map')}>
+      <LocationsList title={translate('_my_map')}>
         {LocationsListOutput}
       </LocationsList>
     );
