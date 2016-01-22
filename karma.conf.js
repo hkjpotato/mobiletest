@@ -26,19 +26,14 @@ module.exports = function (config) {
       'Firefox',
       'Safari',
       // Uncomment these to run your local virtualbox IE VMs. See https://github.com/xdissent/ievms and https://github.com/xdissent/karma-ievms.
-      // Curl command to download and install into virual box automatically (tested with VirtualBox v5.0.8): curl -s https://raw.githubusercontent.com/xdissent/ievms/master/ievms.sh | env IEVMS_VERSIONS=“8 9" REUSE_XP="no" bash
-      // 'IE8 - Win7',
+      // Curl command to download and install into virual box automatically (tested with VirtualBox v5.0.8): curl -s https://raw.githubusercontent.com/xdissent/ievms/master/ievms.sh | env IEVMS_VERSIONS=“9" REUSE_XP="no" bash
       // 'IE9 - Win7'
     ],
     frameworks: ['mocha'],
     files: [
       './node_modules/intl/dist/Intl.min.js',
       './node_modules/console-polyfill/index.js',
-      './node_modules/es5-shim/es5-shim.js',
-      './node_modules/es5-shim/es5-sham.js',
-      './node_modules/html5shiv/dist/html5shiv.min.js',
       './node_modules/babel-polyfill/dist/polyfill.min.js',
-      './vendor/getComputedStyle.js',
       'tests.webpack.js'
     ],
     preprocessors: {
