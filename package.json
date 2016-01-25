@@ -51,7 +51,7 @@
            "esdoc": "^0.4.3",
            "esdoc-es7-plugin": "0.0.3",
           "eslint": "^1.10.3",
-          "eslint-config-airbnb": "^3.0.2",
+          "eslint-config-airbnb": "^4.0.0",
           "eslint-loader": "^1.2.0",
           "eslint-plugin-react": "^3.14.0",
           "expect": "^1.13.4",

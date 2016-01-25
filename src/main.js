@@ -9,8 +9,8 @@ import reducer from './reducers';
 import App from './containers/App';
 
 const middleware = process.env.NODE_ENV === 'production' ?
-  [ thunk ] :
-  [ thunk, logger() ];
+  [thunk] :
+  [thunk, logger()];
 
 const createStoreWithMiddleware = applyMiddleware(...middleware)(createStore);
 const store = createStoreWithMiddleware(reducer);

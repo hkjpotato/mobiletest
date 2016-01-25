@@ -7,7 +7,8 @@ import classNames from 'classnames';
 
 /**
   ## Description
-  Build a className string and an inline style object to pass to a react component using the provided keys and props.
+  Build a className string and an inline style object to pass to
+  a react component using the provided keys and props.
 
   ## Example Usage
 
@@ -37,20 +38,23 @@ export function resolve(props, ...keys) {
     if (style.hasOwnProperty(k)) { return style[k]; }
   });
   return {
-    'className': classNames(classList),
-    'style': Object.assign({}, ...styleList)
+    className: classNames(classList),
+    style: Object.assign({}, ...styleList)
   };
 }
 
 /**
   ## Description
-  Select a subset of values from classes and style in the passed in props object. Useful for styling children objects.
+  Select a subset of values from classes and style in the passed in props object.
+  Useful for styling children objects.
 
 
   ## Example Usage
 
 ```js
-  props =  { classes : {   button1:  { button: { a: 'red'} }, button2: { button: {a :'bluw'}} },  style : { button1: { c: 'green'}} }
+  props =  { classes : {  button1:  { button: { a: 'red'} },
+                          button2: { button: {a :'bluw'}} },
+                          style : { button1: { c: 'green'}} }
   select(props, 'button1')
 ```
 
@@ -74,7 +78,7 @@ export function select(props, ...keys) {
     }
   });
   return {
-    'classes': Object.assign({}, ...newClasses),
-    'style': Object.assign({}, ...newStyles)
+    classes: Object.assign({}, ...newClasses),
+    style: Object.assign({}, ...newStyles)
   };
 }
