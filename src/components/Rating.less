@@ -1,0 +1,37 @@
+@import '../variables.less';
+
+:local {
+  .wrapper {
+    float: left;
+  }
+
+  .symbol {
+    font-size: @hcFontSizeSmall;
+    line-height: @hcLineHeight;
+    display: block;
+    float: left;
+    position: relative;
+
+    & + .symbol {
+      margin-left: 1px;
+    }
+  }
+
+  .symbolFull {
+    color: @hcDarkGray;
+  }
+
+  .symbolEmpty {
+    color: @hcLightGray;
+  }
+
+  .symbolHalfWrapper {
+    > .symbolFull {
+      width: @hcFontSizeSmall/2;
+      overflow: hidden;
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+  }
+}

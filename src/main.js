@@ -1,18 +1,12 @@
 import React from 'react';
 import { render } from 'react-dom';
-import { createStore, applyMiddleware } from 'redux';
+import { createStore, combineReducers, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
-import logger from 'redux-logger';
-import thunk from 'redux-thunk';
-import reducer from './reducers';
-import App from './containers/App';
-
-const middleware = process.env.NODE_ENV === 'production' ?
-  [ thunk ] :
-  [ thunk, logger() ];
-
-const createStoreWithMiddleware = applyMiddleware(...middleware)(createStore);
-const store = createStoreWithMiddleware(reducer);
+import { Router } from 'react-router';
+import routes from './routes';
+import { syncHistory, routeReducer } from 'redux-simple-router';
+import reducers from './reducers';
+import { createHistory } from 'history';
 
 // Registering translations.
 import englishText from '../resources/locales/en.json';
@@ -41,10 +35,24 @@ function loadIntl(cb) {
   });
 }
 
+const reducer = combineReducers(Object.assign({}, reducers, {
+  routing: routeReducer
+}));
+
+// Sync dispatched route actions to the history
+const history = createHistory();
+const reduxRouterMiddleware = syncHistory(history);
+const createStoreWithMiddleware = applyMiddleware(reduxRouterMiddleware)(createStore);
+
+const store = createStoreWithMiddleware(reducer);
+
+// Required for replaying actions from devtools to work
+reduxRouterMiddleware.listenForReplays(store);
+
 function startApp() {
   render(
     <Provider store={store}>
-      <App />
+      <Router history={history} routes={routes} />
     </Provider>,
     document.getElementById('react-mount')
   );

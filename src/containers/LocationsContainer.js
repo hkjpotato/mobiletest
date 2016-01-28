@@ -1,44 +1,29 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
-import LocationItem from '../components/LocationItem';
-import LocationsList from '../components/LocationsList';
-import { translate } from '../translate';
+import { List } from 'immutable';
+import VenueList from '../components/VenueList';
 
-class LocationsContainer extends Component {
+class VenueListContainer extends Component {
   static propTypes = {
-    locations: PropTypes.arrayOf(PropTypes.shape({
-      id: PropTypes.string.isRequired,
-      name: PropTypes.string.isRequired
-    })).isRequired
+    venueList: PropTypes.instanceOf(List)
   };
 
   render() {
-    const { locations } = this.props;
-    let LocationsListOutput = null;
-    if (locations.length > 0) {
-      LocationsListOutput = locations.map(location =>
-        <LocationItem
-          key={location.id}
-          location={location}
-        />
-      );
-      LocationsListOutput = (<ul>{LocationsListOutput}</ul>);
+    const { venueList } = this.props;
+    if (venueList.size > 0) {
+      return <VenueList venueList={venueList} />;
     }
 
-    return (
-      <LocationsList title={translate('_my_map')}>
-        {LocationsListOutput}
-      </LocationsList>
-    );
+    return null;
   }
 }
 
 function mapStateToProps(state) {
   return {
-    locations: state.locations
+    venueList: state.venues
   };
 }
 
 export default connect(
   mapStateToProps
-)(LocationsContainer);
+)(VenueListContainer);

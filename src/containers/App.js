@@ -1,15 +1,22 @@
-import React from 'react';
-import LocationsContainer from './LocationsContainer';
-import PageHeader from '../components/PageHeader';
+import React, { PropTypes } from 'react';
+import PageHeaderContainer from './PageHeaderContainer';
 
 import '../../resources/less/global.less';
 import './App.less';
 
-const App = () => (
+const App = ({
+  children
+}) => (
   <div className="poi-u-grid-container">
-    <PageHeader title="page title" />
-    <LocationsContainer />
+    <PageHeaderContainer />
+    <main>
+      {children}
+    </main>
   </div>
 );
+
+App.propTypes = {
+  children: PropTypes.element
+};
 
 export default App;

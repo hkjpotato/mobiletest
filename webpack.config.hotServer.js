@@ -1,11 +1,10 @@
 const webpack = require('webpack');
 const path = require('path');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const AutoPrefixer = require('autoprefixer');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-  name: 'react-sandbox-boilerplate',
+  name: 'mobile-speedrfp',
   target: 'web',
   devServer: {
     host: '0.0.0.0',
@@ -50,16 +49,16 @@ module.exports = {
             require.resolve('babel-plugin-transform-runtime')
           ],
           env: {
-            "development": {
-              "plugins": [
-                ["react-transform", {
-                  "transforms": [{
-                    "transform": "react-transform-hmr",
-                    "imports": ["react"],
-                    "locals": ["module"]
+            development: {
+              plugins: [
+                ['react-transform', {
+                  transforms: [{
+                    transform: 'react-transform-hmr',
+                    imports: ['react'],
+                    locals: ['module']
                   }, {
-                    "transform": "react-transform-catch-errors",
-                    "imports": ["react", "redbox-react"]
+                    transform: 'react-transform-catch-errors',
+                    imports: ['react', 'redbox-react']
                   }]
                 }]
               ]
@@ -80,14 +79,14 @@ module.exports = {
         include: /resources/
       },
       {
-        test: /\.(svg|png|gif|cur)$/,
+        test: /\.(jpg|svg|png|gif|cur)$/,
         loader: 'file?name=images/[name]__[hash:base64:5].[ext]!image-webpack?bypassOnDebug&optimizationLevel=7&interlaced=false',
         include: /resources\/images/
       },
       {
-        test: /\.(woff|eot|ttf|svg)$/,
+        test: /\.(ttf|eot|svg|woff|otf|woff2)(\?.*)?$/,
         loader: 'file-loader?name=fonts/[name]_[hash:base64:5].[ext]',
-        include: /resources\/font/
+        include: /resources\/fonts/
       },
       { test: /\.json$/,
         loader: 'json'

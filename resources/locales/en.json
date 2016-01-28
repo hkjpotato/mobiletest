@@ -1,3 +1,14 @@
 {
-  "_my_map": "My Map"
+  "_cvent_supplier_network": "Cvent Supplier Network",
+  "_venues": "Venues",
+  "_promotions": "Promotions",
+  "_city_guides": "City Guides",
+  "_promoted_venue": "Promoted Venue",
+  "_number_of_sleeping_rooms": "{number, plural, one {1 Sleeping Room} other {# Sleeping Rooms}}",
+  "_number_of_meeting_rooms": "{number, plural, one {1 Meeting Room} other {# Meeting Rooms}}",
+  "_meeting_space": "Meeting Space",
+  "_largest_room": "Largest Room",
+  "_environmentally_friendly": "Environmentally Friendly",
+  "_cancelled_space_available": "Cancelled Space Available",
+  "_current_promotion": "Current Promotion"
 }

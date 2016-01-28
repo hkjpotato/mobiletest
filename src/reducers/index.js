@@ -1,6 +1,7 @@
-import { combineReducers } from 'redux';
+import venues from './venues';
 import locations from './locations';
 
-export default combineReducers({
+export default {
+  venues,
   locations
-});
+};

@@ -1,0 +1,55 @@
+@import '../variables.less';
+
+:local {
+  .wrapper {
+    border-bottom: solid 2px @hcBlue;
+  }
+
+  .logo {
+    display: block;
+    float: left;
+    background: url(../../resources/images/cvent-logo.png) no-repeat 0 0;
+    text-indent: -9999px;
+    width: 125px;
+    height: 40px;
+    margin: 10px 20px;
+  }
+
+  .navListWrapper {
+    float: left;
+  }
+
+  .navList {
+    float: left;
+    list-style: none;
+  }
+
+  .navItem {
+    float: left;
+  }
+
+  .navLink {
+    display: block;
+    float: left;
+    padding: 20px;
+    color: @hcGray;
+
+    &:hover {
+      color: @hcGray;
+      text-decoration: none;
+    }
+    &:focus {
+      color: @hcWhite;
+      text-decoration: none;
+    }
+  }
+
+  .activeNavLink {
+    background: @hcBlue;
+    color: @hcWhite;
+
+    &:hover {
+      color: @hcWhite;
+    }
+  }
+}
