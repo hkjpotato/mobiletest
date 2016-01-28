@@ -43,7 +43,7 @@ const config = {
       {
         test: /\.(js|jsx)$/,
         loader: 'babel',
-        include: [/src/],
+        include: [/src/, /node_modules\/nucleus-text/],
         query: {
           presets: [
             require.resolve('babel-preset-es2015-loose'),
