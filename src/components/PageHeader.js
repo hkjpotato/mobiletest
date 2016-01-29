@@ -1,36 +1,19 @@
 import React, { PropTypes } from 'react';
 import { translate } from '../translate';
+import { Link } from 'react-router';
 import styles from './PageHeader.less';
 
-const PageHeader = ({
-  children
-}) => {
-  const navListItems = children.map((item, index) =>
-    <li
-      key={index}
-      className={styles.navItem}
-    >
-      {React.cloneElement(item, {
-        activeClassName: styles.activeNavLink,
-        className: styles.navLink
-      })}
-    </li>
-  );
-
-  return (
-    <header className={`${styles.wrapper} hc-u-clearfix`}>
-      <a href="/" className={styles.logo}>{translate('_cvent_supplier_network')}</a>
-      <nav className={styles.navListWrapper}>
-        <ul className={styles.navList}>
-          {navListItems}
-        </ul>
-      </nav>
-    </header>
-  );
-};
+const PageHeader = ({ pageTitle, returnPage }) =>
+(
+  <span>
+    <h2 className={`${styles.wrapper} emi-u-clearfix`}>{translate(pageTitle)}</h2>
+    { returnPage ? <Link to={returnPage}>&times</Link> : null }
+  </span>
+);
 
 PageHeader.propTypes = {
-  children: PropTypes.array
+  pageTitle: PropTypes.string.isRequired,
+  returnPage: PropTypes.string
 };
 
 export default PageHeader;

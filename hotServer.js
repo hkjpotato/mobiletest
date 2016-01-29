@@ -1,10 +1,10 @@
-var webpack = require('webpack');
-var express = require('express');
-var config = require('./webpack.config.hotServer');
-var path = require('path');
+const webpack = require('webpack');
+const express = require('express');
+const config = require('./webpack.config.hotServer');
+const path = require('path');
 
-var app = express();
-var compiler = webpack(config);
+const app = express();
+const compiler = webpack(config);
 
 app.use(require('webpack-dev-middleware')(compiler, {
   noInfo: true,
