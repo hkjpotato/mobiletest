@@ -78,14 +78,14 @@ const config = {
         include: /resources/
       },
       {
-        test: /\.(svg|png|gif|cur)$/,
+        test: /\.(svg|png|gif|cur|jpg)$/,
         loader: 'file?name=images/[name]__[hash:base64:5].[ext]!image-webpack?bypassOnDebug&optimizationLevel=7&interlaced=false',
-        include: /resources\/images/
+        include: [/resources\/images/, /resources\\images/]
       },
       {
         test: /\.(woff|eot|ttf|svg)$/,
         loader: 'file-loader?name=fonts/[name]_[hash:base64:5].[ext]',
-        include: /resources\/font/
+        include: [/resources\/font/, /resources\\font/]
       },
       { test: /\.json$/,
         loader: 'json'
