@@ -43,7 +43,7 @@ const config = {
       {
         test: /\.(js|jsx)$/,
         loader: 'babel',
-        include: [/src/, /node_modules\/nucleus-text/, /node_modules\\nucleus-text/],
+        include: [/src/, /node_modules(\\|\/)nucleus-text/],  // use (\\|\/) for unix- and windows-friendly path separator
         query: {
           presets: [
             require.resolve('babel-preset-es2015-loose'),
@@ -80,12 +80,12 @@ const config = {
       {
         test: /\.(svg|png|gif|cur|jpg)$/,
         loader: 'file?name=images/[name]__[hash:base64:5].[ext]!image-webpack?bypassOnDebug&optimizationLevel=7&interlaced=false',
-        include: [/resources\/images/, /resources\\images/]
+        include: [/resources(\\|\/)images/]  // use (\\|\/) for unix- and windows-friendly path separator
       },
       {
         test: /\.(woff|eot|ttf|svg)$/,
         loader: 'file-loader?name=fonts/[name]_[hash:base64:5].[ext]',
-        include: [/resources\/font/, /resources\\font/]
+        include: [/resources(\\|\/)font/]  // use (\\|\/) for unix- and windows-friendly path separator
       },
       { test: /\.json$/,
         loader: 'json'
