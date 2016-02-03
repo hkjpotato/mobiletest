@@ -38,7 +38,7 @@ module.exports = {
       {
         test: /\.(js|jsx)$/,
         loader: 'babel',
-        include: [/src/, /node_modules\/nucleus-text/],
+        include: [/src/, /node_modules(\\|\/)nucleus-text/],  // use (\\|\/) for unix- and windows-friendly path separator
         query: {
           presets: [
             require.resolve('babel-preset-es2015-loose'),
@@ -79,14 +79,14 @@ module.exports = {
         include: /resources/
       },
       {
-        test: /\.(jpg|svg|png|gif|cur)$/,
+        test: /\.(svg|png|gif|cur|jpg)$/,
         loader: 'file?name=images/[name]__[hash:base64:5].[ext]!image-webpack?bypassOnDebug&optimizationLevel=7&interlaced=false',
-        include: /resources\/images/
+        include: [/resources(\\|\/)images/]  // use (\\|\/) for unix- and windows-friendly path separator
       },
       {
         test: /\.(ttf|eot|svg|woff|otf|woff2)(\?.*)?$/,
         loader: 'file-loader?name=fonts/[name]_[hash:base64:5].[ext]',
-        include: /resources\/fonts/
+        include: [/resources(\\|\/)font/]  // use (\\|\/) for unix- and windows-friendly path separator
       },
       { test: /\.json$/,
         loader: 'json'
