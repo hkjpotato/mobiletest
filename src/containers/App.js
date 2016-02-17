@@ -6,7 +6,7 @@ import './App.less';
 const App = ({
   children
 }) => (
-  <div className="poi-u-grid-container">
+  <div className="emi-u-grid-container">
     <main>
       {children}
     </main>

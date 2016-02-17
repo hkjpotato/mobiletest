@@ -38,7 +38,13 @@ module.exports = {
       {
         test: /\.(js|jsx)$/,
         loader: 'babel',
-        include: [/src/, /node_modules(\\|\/)nucleus-text/],  // use (\\|\/) for unix- and windows-friendly path separator
+        include: [
+          /src/,
+          /node_modules\/nucleus-text/,
+          /node_modules\\nucleus-text/,
+          /node_modules\/nucleus-core/,
+          /node_modules\\nucleus-core/
+        ], // use (\\|\/) for unix- and windows-friendly path separator
         query: {
           presets: [
             require.resolve('babel-preset-es2015-loose'),
